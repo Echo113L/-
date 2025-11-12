@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSGO饰品市场崩盘模拟</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -10,116 +10,101 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a3a, #0d1824);
+            background-color: #1a1a2e;
             color: #e0e0e0;
-            min-height: 100vh;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 15px;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(30, 40, 50, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #34495e;
         }
         
         header {
             text-align: center;
             margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #3498db;
         }
         
         h1 {
-            color: #3498db;
-            font-size: 24px;
+            color: #f1c40f;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 24px;
         }
         
         .subtitle {
-            color: #95a5a6;
+            color: #bbb;
             font-size: 14px;
         }
         
         .game-area {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            background-color: #16213e;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
         }
         
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .stat-card {
-            background: rgba(40, 55, 70, 0.7);
-            padding: 12px;
-            border-radius: 10px;
+            background-color: #0f3460;
+            padding: 10px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         
         .stat-value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
+            color: #4CAF50;
             margin-top: 5px;
-            color: #f1c40f;
         }
         
         .chart-container {
-            background: rgba(25, 35, 45, 0.7);
-            border-radius: 10px;
-            padding: 15px;
-            height: 250px;
-            margin-bottom: 15px;
+            height: 30vh;
+            min-height: 200px;
+            margin-bottom: 20px;
+            position: relative;
         }
         
         .items-panel {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .item-card {
-            background: rgba(40, 55, 70, 0.7);
-            border-radius: 10px;
-            padding: 12px;
+            background-color: #0f3460;
+            padding: 15px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            min-height: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .item-card.active {
-            border-color: #3498db;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
-        }
-        
-        .item-card:hover {
-            transform: translateY(-3px);
+            border: 2px solid #f1c40f;
         }
         
         .item-name {
             font-weight: bold;
-            color: #3498db;
-            margin-bottom: 5px;
         }
         
         .item-price {
-            font-size: 18px;
-            color: #f1c40f;
+            margin: 5px 0;
+            color: #4CAF50;
         }
         
         .item-change {
@@ -127,7 +112,7 @@
         }
         
         .positive {
-            color: #2ecc71;
+            color: #4CAF50;
         }
         
         .negative {
@@ -135,82 +120,77 @@
         }
         
         .actions-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            margin-bottom: 20px;
         }
         
         .trade-inputs {
             display: flex;
             gap: 10px;
-        }
-        
-        input, button {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            margin-bottom: 10px;
         }
         
         input {
             flex: 1;
-            background: rgba(50, 65, 80, 0.8);
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3e50;
             color: white;
-            border: 1px solid #34495e;
+            min-height: 48px;
         }
         
         button {
-            background: #3498db;
-            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
             font-weight: bold;
+            transition: background-color 0.3s ease;
+            min-height: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
-        button:hover {
-            background: #2980b9;
-        }
-        
-        button:disabled {
-            background: #7f8c8d;
-            cursor: not-allowed;
+        #buy-btn {
+            background-color: #27ae60;
+            color: white;
+            flex: 1;
         }
         
         .sell-btn {
-            background: #e74c3c;
-        }
-        
-        .sell-btn:hover {
-            background: #c0392b;
+            background-color: #e74c3c;
+            color: white;
+            flex: 1;
         }
         
         .next-day-btn {
-            background: #2ecc71;
-            margin-top: 10px;
-        }
-        
-        .next-day-btn:hover {
-            background: #27ae60;
+            background-color: #f39c12;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
         }
         
         .history-panel {
-            background: rgba(25, 35, 45, 0.7);
-            border-radius: 10px;
+            background-color: #0f3460;
+            border-radius: 8px;
             padding: 15px;
-            max-height: 150px;
+            max-height: 200px;
             overflow-y: auto;
         }
         
         .history-title {
-            font-size: 16px;
+            font-weight: bold;
             margin-bottom: 10px;
-            color: #3498db;
+            color: #f1c40f;
         }
         
         .history-item {
-            padding: 8px;
-            border-bottom: 1px solid #34495e;
             font-size: 14px;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
         .modal {
@@ -220,33 +200,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0,0,0,0.7);
             z-index: 1000;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
         
         .modal-content {
-            background: #1a2a3a;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 15px;
+            background-color: #16213e;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            border: 2px solid #3498db;
-            animation: popIn 0.3s ease-out;
-        }
-        
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
         }
         
         .modal-header {
-            color: #3498db;
+            color: #f1c40f;
             font-size: 20px;
+            font-weight: bold;
             margin-bottom: 15px;
-            text-align: center;
         }
         
         .modal-body {
@@ -255,12 +229,14 @@
         }
         
         .modal-footer {
-            text-align: center;
+            display: flex;
+            justify-content: flex-end;
         }
         
         .close-btn {
             background: #e74c3c;
             width: 100%;
+            color: white;
         }
         
         .crash-effect {
@@ -287,7 +263,7 @@
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.5); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1); }
         }
         
         .day-indicator {
@@ -305,6 +281,29 @@
             
             .trade-inputs {
                 flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .stat-value, .item-price {
+                font-size: 16px;
+            }
+            
+            input, button {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .day-indicator {
+                font-size: 16px;
             }
         }
     </style>
@@ -710,6 +709,9 @@
             const itemData = gameData.prices[gameData.selectedItem];
             const labels = Array.from({length: itemData.length}, (_, i) => `第${i+1}天`);
             
+            // 检测是否为移动设备
+            const isMobile = window.innerWidth < 600;
+            
             priceChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -719,7 +721,7 @@
                         data: itemData,
                         borderColor: '#3498db',
                         backgroundColor: 'rgba(52, 152, 219, 0.1)',
-                        borderWidth: 2,
+                        borderWidth: isMobile ? 1.5 : 2,
                         fill: true,
                         tension: 0.4
                     }]
@@ -729,8 +731,12 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
+                            display: !isMobile,
                             labels: {
-                                color: '#e0e0e0'
+                                color: '#e0e0e0',
+                                font: {
+                                    size: isMobile ? 10 : 12
+                                }
                             }
                         }
                     },
@@ -740,7 +746,10 @@
                                 color: 'rgba(255, 255, 255, 0.1)'
                             },
                             ticks: {
-                                color: '#e0e0e0'
+                                color: '#e0e0e0',
+                                font: {
+                                    size: isMobile ? 8 : 10
+                                }
                             }
                         },
                         y: {
@@ -749,6 +758,9 @@
                             },
                             ticks: {
                                 color: '#e0e0e0',
+                                font: {
+                                    size: isMobile ? 8 : 10
+                                },
                                 callback: function(value) {
                                     return '¥' + value.toLocaleString();
                                 }
