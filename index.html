@@ -59,7 +59,7 @@ h1 {
     gap: 12px;
 }
 
-/* 核心修改：统计面板强制3列布局，缩小间距和尺寸 */
+/* 统计面板：现金/持仓/总资产 */
 .stats-panel {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 始终3列 */
@@ -67,26 +67,86 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* 核心修改：大幅缩小卡片尺寸 */
-.stat-card {
+/* 统一卡片基础样式（统计卡片+道具卡片） */
+.stat-card, .item-card {
     background: rgba(40, 55, 70, 0.7);
-    padding: 4px 2px; /* 极致缩小内边距 */
+    padding: 4px 2px; /* 极致缩小内边距，统一尺寸 */
     border-radius: 6px;
     text-align: center;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    min-height: auto; /* 取消最小高度限制 */
+    height: auto; /* 自适应高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
 }
 
+/* 统计卡片文字样式 */
 .stat-card div:first-child {
-    font-size: 10px; /* 进一步缩小描述文字 */
+    font-size: 10px; /* 描述文字 */
     color: #bbb;
+    line-height: 1.2;
 }
 
 .stat-value {
-    font-size: 12px; /* 大幅缩小数值字体 */
+    font-size: 12px; /* 数值文字 */
     font-weight: bold;
     color: #f1c40f;
     margin-top: 2px;
-    line-height: 1.2; /* 紧凑行高 */
+    line-height: 1.2;
+}
+
+/* 道具面板：强制2列布局（两两一排） */
+.items-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 始终2列，两两一排 */
+    gap: 4px; /* 和统计面板统一间距 */
+    margin-bottom: 10px;
+}
+
+/* 道具卡片文字样式（和统计卡片完全统一） */
+.item-name {
+    font-size: 10px; /* 和统计卡片描述文字同尺寸 */
+    font-weight: bold;
+    color: #3498db;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.item-price {
+    font-size: 12px; /* 和统计卡片数值同尺寸 */
+    color: #f1c40f;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.item-change {
+    font-size: 9px; /* 涨跌幅更小，不超出卡片 */
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+/* 道具卡片选中样式 */
+.item-card.active {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+.item-card:hover {
+    transform: translateY(-1px); /* 缩小hover效果，适配小卡片 */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* 涨跌幅颜色 */
+.positive {
+    color: #2ecc71;
+}
+
+.negative {
+    color: #e74c3c;
 }
 
 .chart-container {
@@ -96,60 +156,6 @@ h1 {
     background: rgba(25, 35, 45, 0.7);
     border-radius: 8px;
     padding: 10px;
-}
-
-.items-panel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
-.item-card {
-    background: rgba(40, 55, 70, 0.7);
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    min-height: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid transparent;
-}
-
-.item-card.active {
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
-}
-
-.item-card:hover {
-    transform: translateY(-2px);
-}
-
-.item-name {
-    font-weight: bold;
-    color: #3498db;
-    margin-bottom: 3px;
-    font-size: 14px;
-}
-
-.item-price {
-    margin: 5px 0;
-    color: #f1c40f;
-    font-size: 15px;
-}
-
-.item-change {
-    font-size: 12px;
-}
-
-.positive {
-    color: #2ecc71;
-}
-
-.negative {
-    color: #e74c3c;
 }
 
 .actions-panel {
@@ -320,27 +326,28 @@ button:disabled {
     color: #f1c40f;
 }
 
-/* 响应式优化：重点保留统计面板3列布局 */
+/* 响应式优化：仅调整间距和字体，不改变列布局 */
 @media (max-width: 768px) {
-    .items-panel {
-        grid-template-columns: 1fr; /* 物品面板单列 */
-    }
-    .trade-inputs {
-        flex-direction: column; /* 交易按钮垂直排列 */
-    }
-    /* 移除统计面板的单列强制，保持3列 */
     .stats-panel {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3px; /* 更小间距适配小屏 */
+        gap: 3px;
     }
-    .stat-card {
-        padding: 3px 1px; /* 极致适配超小屏 */
+    .items-panel {
+        gap: 3px; /* 保持2列，仅缩小间距 */
     }
-    .stat-card div:first-child {
+    .stat-card, .item-card {
+        padding: 3px 1px;
+    }
+    .stat-card div:first-child, .item-name {
         font-size: 9px;
     }
-    .stat-value {
+    .stat-value, .item-price {
         font-size: 11px;
+    }
+    .item-change {
+        font-size: 8px;
+    }
+    .trade-inputs {
+        flex-direction: column; /* 交易按钮垂直排列，释放横向空间 */
     }
 }
 
@@ -391,7 +398,7 @@ button:disabled {
             <canvas id="price-chart"></canvas>
         </div>
         
-        <!-- 物品选择面板 -->
+        <!-- 物品选择面板：2列布局（两两一排） -->
         <div class="items-panel">
             <div class="item-card active" data-item="butterfly">
                 <div class="item-name">蝴蝶刀 | 多普勒</div>
