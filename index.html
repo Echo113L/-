@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -12,166 +11,188 @@
             box-sizing: border-box;
             font-family: 'Microsoft YaHei', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #1a2a3a, #0d1824);
             color: #e0e0e0;
+            padding: 8px;
             min-height: 100vh;
-            padding: 10px; /* 缩减边距 */
-            line-height: 1.5; /* 紧凑行高 */
+            line-height: 1.4;
         }
-        
+
         .container {
-            width: 100%; /* 全屏宽度 */
-            max-width: 100%; /* 取消最大宽度限制 */
+            width: 100%;
             margin: 0 auto;
             background: rgba(30, 40, 50, 0.8);
-            border-radius: 12px; /* 减小圆角 */
-            padding: 15px; /* 缩减内边距 */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             border: 1px solid #34495e;
         }
-        
+
         header {
             text-align: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
             border-bottom: 2px solid #3498db;
         }
-        
+
         h1 {
             color: #3498db;
-            font-size: 20px; /* 减小标题字体 */
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 5px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .subtitle {
             color: #95a5a6;
-            font-size: 12px; /* 减小副标题字体 */
+            font-size: 11px;
         }
-        
+
         .game-area {
+            background-color: #16213e;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            gap: 12px; /* 减小组件间距 */
+            gap: 8px;
         }
-        
+
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px; /* 减小卡片间距 */
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 8px;
         }
-        
+
         .stat-card {
             background: rgba(40, 55, 70, 0.7);
-            padding: 8px; /* 缩减内边距 */
-            border-radius: 8px;
+            padding: 6px;
+            border-radius: 6px;
             text-align: center;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .stat-card div:first-child {
-            font-size: 12px; /* 缩小描述文字 */
+            font-size: 11px;
         }
-        
+
         .stat-value {
-            font-size: 16px; /* 减小数值字体 */
+            font-size: 14px;
             font-weight: bold;
-            margin-top: 3px;
             color: #f1c40f;
+            margin-top: 2px;
         }
-        
+
         .chart-container {
+            height: 140px;
+            margin-bottom: 8px;
+            position: relative;
             background: rgba(25, 35, 45, 0.7);
-            border-radius: 8px;
-            padding: 10px; /* 缩减内边距 */
-            height: 180px; /* 降低图表高度（关键适配） */
-            margin-bottom: 10px;
+            border-radius: 6px;
+            padding: 8px;
         }
-        
+
         .items-panel {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px; /* 减小物品卡片间距 */
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 8px;
         }
-        
+
         .item-card {
             background: rgba(40, 55, 70, 0.7);
-            border-radius: 8px;
-            padding: 10px; /* 缩减内边距 */
+            border-radius: 6px;
+            padding: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            border: 2px solid transparent;
+            min-height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1.5px solid transparent;
         }
-        
+
         .item-card.active {
             border-color: #3498db;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+            box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
         }
         
         .item-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
-        
+
         .item-name {
             font-weight: bold;
             color: #3498db;
-            margin-bottom: 3px;
-            font-size: 14px; /* 减小物品名称字体 */
+            margin-bottom: 2px;
+            font-size: 12px;
         }
-        
+
         .item-price {
-            font-size: 15px; /* 减小价格字体 */
             color: #f1c40f;
+            font-size: 13px;
+            margin: 2px 0;
         }
-        
+
         .item-change {
-            font-size: 12px; /* 减小涨跌幅字体 */
+            font-size: 11px;
         }
-        
+
         .positive {
             color: #2ecc71;
         }
-        
+
         .negative {
             color: #e74c3c;
         }
-        
+
         .actions-panel {
+            margin-bottom: 8px;
             display: flex;
             flex-direction: column;
-            gap: 8px; /* 减小按钮间距 */
+            gap: 6px;
         }
-        
+
         .trade-inputs {
             display: flex;
-            gap: 8px; /* 减小输入框与按钮间距 */
+            gap: 6px;
+            margin-bottom: 6px;
         }
         
         input, button {
-            padding: 10px; /* 缩减内边距 */
+            padding: 8px;
             border: none;
-            border-radius: 6px;
-            font-size: 14px; /* 减小字体 */
+            border-radius: 5px;
+            font-size: 12px;
+            min-height: 40px;
         }
-        
+
         input {
             flex: 1;
             background: rgba(50, 65, 80, 0.8);
             color: white;
             border: 1px solid #34495e;
+            font-size: 12px;
+            padding: 8px 6px;
         }
-        
+
         button {
             background: #3498db;
             color: white;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background-color 0.3s ease;
             font-weight: bold;
-            flex: 1; /* 按钮等宽分布 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 8px 4px;
+        }
+
+        #buy-btn {
+            background-color: #27ae60;
         }
         
         button:hover {
@@ -182,7 +203,7 @@
             background: #7f8c8d;
             cursor: not-allowed;
         }
-        
+
         .sell-btn {
             background: #e74c3c;
         }
@@ -190,37 +211,40 @@
         .sell-btn:hover {
             background: #c0392b;
         }
-        
+
         .next-day-btn {
             background: #2ecc71;
-            margin-top: 5px;
-            padding: 11px; /* 稍微加大下一天按钮 */
+            width: 100%;
+            margin-top: 4px;
+            padding: 10px 4px;
+            font-size: 14px;
         }
         
         .next-day-btn:hover {
             background: #27ae60;
         }
-        
+
         .history-panel {
             background: rgba(25, 35, 45, 0.7);
-            border-radius: 8px;
-            padding: 10px; /* 缩减内边距 */
-            max-height: 100px; /* 降低历史记录高度 */
+            border-radius: 6px;
+            padding: 8px;
+            max-height: 80px;
             overflow-y: auto;
         }
-        
+
         .history-title {
-            font-size: 14px; /* 减小标题字体 */
-            margin-bottom: 6px;
+            font-weight: bold;
             color: #3498db;
+            font-size: 12px;
+            margin-bottom: 4px;
         }
-        
+
         .history-item {
-            padding: 5px 0; /* 缩减内边距 */
+            padding: 3px 0;
             border-bottom: 1px solid #34495e;
-            font-size: 12px; /* 减小记录字体 */
+            font-size: 11px;
         }
-        
+
         .modal {
             display: none;
             position: fixed;
@@ -228,20 +252,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 1000;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
+            justify-content: center;
+            padding: 15px;
         }
-        
+
         .modal-content {
             background: #1a2a3a;
             width: 100%;
-            max-width: 350px; /* 限制弹窗最大宽度 */
-            border-radius: 12px;
-            padding: 15px; /* 缩减弹窗内边距 */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            max-width: 320px;
+            position: relative;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             border: 2px solid #3498db;
             animation: popIn 0.3s ease-out;
         }
@@ -250,86 +275,102 @@
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .modal-header {
             color: #3498db;
-            font-size: 18px; /* 减小弹窗标题 */
-            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
             text-align: center;
         }
-        
+
         .modal-body {
-            margin-bottom: 15px;
-            line-height: 1.5;
-            font-size: 14px; /* 减小弹窗内容字体 */
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-size: 13px;
         }
-        
+
         .modal-footer {
             text-align: center;
         }
-        
+
         .close-btn {
             background: #e74c3c;
             width: 100%;
+            color: white;
+            padding: 10px;
         }
-        
+
         .crash-effect {
-            animation: crashShake 0.5s ease-in-out;
+            animation: pulse 0.5s infinite;
+            color: #e74c3c;
+            font-weight: bold;
         }
-        
-        @keyframes crashShake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        
-        .event-indicator {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 12px;
-            height: 12px;
-            background: #e74c3c;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-        
+
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 0.7; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .day-indicator {
             text-align: center;
-            margin-bottom: 8px;
-            font-size: 15px; /* 减小日期字体 */
+            margin-bottom: 6px;
+            font-size: 14px;
             color: #f1c40f;
         }
-        
-        /* 强制手机端适配（关键优化） */
+
+        /* 响应式设计 - 移动端优先 */
         @media (max-width: 768px) {
             .stats-panel, .items-panel {
-                grid-template-columns: 1fr; /* 单列布局，避免横向拥挤 */
+                grid-template-columns: 1fr;
             }
-            
+
             .trade-inputs {
-                flex-direction: column; /* 垂直排列，节省横向空间 */
+                flex-direction: column;
             }
-            
-            /* 确保图表在小屏幕不溢出 */
+
             .chart-container {
-                height: 160px;
+                height: 130px;
             }
-            
-            /* 优化模态框在极小屏幕显示 */
+
             .modal-content {
-                padding: 12px;
+                padding: 10px;
+            }
+
+            .history-panel {
+                max-height: 70px;
+            }
+
+            body {
+                padding: 4px;
+            }
+
+            .container {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .chart-container {
+                height: 120px;
             }
             
-            /* 减小历史记录高度，避免占用过多空间 */
-            .history-panel {
-                max-height: 90px;
+            h1 {
+                font-size: 16px;
+            }
+            
+            .stat-value {
+                font-size: 13px;
+            }
+            
+            input, button {
+                min-height: 38px;
+                font-size: 11px;
+            }
+            
+            .next-day-btn {
+                font-size: 13px;
             }
         }
     </style>
@@ -338,24 +379,24 @@
     <div class="container">
         <header>
             <h1>CSGO饰品市场崩盘模拟</h1>
-            <div class="subtitle">亲身体验V社一行代码如何引发虚拟经济地震</div>
+            <div class="subtitle">体验CSGO饰品市场的涨跌与崩盘</div>
         </header>
         
         <div class="game-area">
-            <div class="day-indicator">第 <span id="current-day">1</span> 天 - <span id="date-display">10月16日</span></div>
+            <div class="day-indicator">当前时间：<span id="current-day">第1天</span></div>
             
             <div class="stats-panel">
                 <div class="stat-card">
-                    <div>现金余额</div>
-                    <div class="stat-value">¥<span id="cash-amount">50000</span></div>
+                    <div>现金</div>
+                    <div id="cash" class="stat-value">¥50,000</div>
                 </div>
                 <div class="stat-card">
                     <div>持仓价值</div>
-                    <div class="stat-value">¥<span id="inventory-value">0</span></div>
+                    <div id="inventory-value" class="stat-value">¥0</div>
                 </div>
                 <div class="stat-card">
                     <div>总资产</div>
-                    <div class="stat-value">¥<span id="total-assets">50000</span></div>
+                    <div id="total-assets" class="stat-value">¥50,000</div>
                 </div>
             </div>
             
@@ -364,25 +405,25 @@
             </div>
             
             <div class="items-panel">
-                <div class="item-card active" data-item="butterfly">
+                <div class="item-card" data-item="butterfly">
                     <div class="item-name">蝴蝶刀</div>
-                    <div class="item-price">¥<span id="butterfly-price">42000</span></div>
-                    <div class="item-change positive" id="butterfly-change">+0.0%</div>
+                    <div class="item-price" id="price-butterfly">¥1,200</div>
+                    <div class="item-change" id="change-butterfly">0%</div>
                 </div>
                 <div class="item-card" data-item="gloves">
-                    <div class="item-name">专业手套</div>
-                    <div class="item-price">¥<span id="gloves-price">28000</span></div>
-                    <div class="item-change positive" id="gloves-change">+0.0%</div>
+                    <div class="item-name">手套</div>
+                    <div class="item-price" id="price-gloves">¥800</div>
+                    <div class="item-change" id="change-gloves">0%</div>
                 </div>
                 <div class="item-card" data-item="dragon">
-                    <div class="item-name">AWP 巨龙传说</div>
-                    <div class="item-price">¥<span id="dragon-price">120000</span></div>
-                    <div class="item-change positive" id="dragon-change">+0.0%</div>
+                    <div class="item-name">龙狙</div>
+                    <div class="item-price" id="price-dragon">¥5,000</div>
+                    <div class="item-change" id="change-dragon">0%</div>
                 </div>
                 <div class="item-card" data-item="dagger">
-                    <div class="item-name">穿肠刀</div>
-                    <div class="item-price">¥<span id="dagger-price">8000</span></div>
-                    <div class="item-change positive" id="dagger-change">+0.0%</div>
+                    <div class="item-name">匕首</div>
+                    <div class="item-price" id="price-dagger">¥1,500</div>
+                    <div class="item-change" id="change-dagger">0%</div>
                 </div>
             </div>
             
@@ -397,7 +438,7 @@
             
             <div class="history-panel">
                 <div class="history-title">交易记录</div>
-                <div id="history-list"></div>
+                <div id="history-list" class="history-list"></div>
             </div>
         </div>
     </div>
@@ -405,31 +446,27 @@
     <!-- 事件弹窗 -->
     <div id="event-modal" class="modal">
         <div class="modal-content">
-            <div class="event-indicator"></div>
-            <div class="modal-header" id="event-title">市场传闻</div>
-            <div class="modal-body" id="event-content">
-                听说V社即将有重大更新，市场情绪躁动...
-            </div>
+            <div class="modal-header" id="event-title">事件</div>
+            <div class="modal-body" id="event-content"></div>
             <div class="modal-footer">
-                <button id="close-event" class="close-btn">确认</button>
+                <button id="close-event" class="close-btn">关闭</button>
             </div>
         </div>
     </div>
     
-    <!-- 结局弹窗 -->
+    <!-- 结果弹窗 -->
     <div id="result-modal" class="modal">
         <div class="modal-content">
-            <div class="modal-header" id="result-title">游戏结束</div>
-            <div class="modal-body" id="result-content">
-                根据您的最终资产盈亏比例，生成不同结局评语...
-            </div>
+            <div class="modal-header">游戏结束</div>
+            <div class="modal-body" id="result-content"></div>
             <div class="modal-footer">
-                <button id="restart-btn" class="next-day-btn">重新开始</button>
+                <button id="restart-btn" class="close-btn">重新开始</button>
             </div>
         </div>
     </div>
+
     <script>
-        // 游戏数据（保持不变）
+        // 游戏数据
         const gameData = {
             currentDay: 1,
             cash: 50000,
@@ -440,39 +477,40 @@
                 dagger: 0
             },
             prices: {
-                butterfly: [42000],
-                gloves: [28000],
-                dragon: [120000],
-                dagger: [8000]
+                butterfly: [1200],
+                gloves: [800],
+                dragon: [5000],
+                dagger: [1500]
             },
             selectedItem: 'butterfly',
-            priceHistory: [],
             events: [
-                { day: 1, title: "背景介绍", content: "2025年10月，CSGO饰品市场异常繁荣。蝴蝶刀价格突破4万元，专业手套、巨龙传说等高端饰品价格持续走高。许多年轻人将饰品视为理财工具，市场投机氛围浓厚。" },
-                { day: 2, title: "市场传闻", content: "社区开始流传V社即将推出重大更新的消息，有分析师认为这可能对饰品市场产生深远影响。部分投资者开始谨慎观望。" },
-                { day: 4, title: "分析师看涨", content: "知名饰品分析师发布报告，认为高端饰品的稀缺性将支撑其价格长期上涨，建议投资者逢低买入。市场情绪再度乐观。" },
-                { day: 6, title: "预警信号", content: "有消息称V社将在近期调整饰品系统，但具体内容未知。部分大户开始减仓，市场出现小幅波动。" },
-                { day: 7, title: "V社更新公告", content: "10月23日，V社发布更新：'5件普通隐秘品质皮肤（红色），可汰换1把普通刀具或1副普通手套。' 这一行代码彻底改变了饰品生成逻辑！" },
-                { day: 8, title: "市场崩盘", content: "更新发布后，高端饰品价格断崖式下跌。蝴蝶刀从4.2万元跌至9800元，专业手套、巨龙传说等价格腰斩。市场恐慌情绪蔓延。" }
+                { day: 1, title: '市场初期', content: 'CSGO饰品市场正处于繁荣期，所有饰品价格稳定上涨。' },
+                { day: 3, title: '市场波动', content: 'V社发布新公告，市场开始出现波动，部分饰品价格下跌。' },
+                { day: 5, title: '大量出货', content: '大量新饰品流入市场，价格开始大幅下跌！' },
+                { day: 7, title: '市场崩盘', content: 'CSGO饰品市场全面崩盘，所有饰品价格暴跌90%！' }
             ],
-            dates: [
-                "10月16日", "10月17日", "10月18日", "10月19日", 
-                "10月20日", "10月21日", "10月22日", "10月23日", "10月24日"
+            dateLabels: [
+                "10月15日", "10月16日", "10月17日", "10月18日", 
+                "10月19日", "10月20日", "10月21日", "10月22日"
             ]
         };
+
         // 图表实例
         let priceChart;
+
         // DOM加载完成后初始化游戏
         document.addEventListener('DOMContentLoaded', function() {
             initializeGame();
             setupEventListeners();
             drawPriceChart();
         });
+
         // 初始化游戏
         function initializeGame() {
             updateUI();
-            showEvent(1); // 显示第一天的事件
+            showEvent(1);
         }
+
         // 设置事件监听
         function setupEventListeners() {
             // 物品选择
@@ -480,10 +518,14 @@
                 card.addEventListener('click', function() {
                     document.querySelectorAll('.item-card').forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
-                    gameData.selectedItem = this.getAttribute('data-item');
+                    gameData.selectedItem = this.dataset.item;
                     drawPriceChart();
                 });
             });
+
+            // 默认选中第一个物品
+            document.querySelector('.item-card').classList.add('active');
+
             // 买入按钮
             document.getElementById('buy-btn').addEventListener('click', function() {
                 const amount = parseInt(document.getElementById('trade-amount').value) || 0;
@@ -491,6 +533,7 @@
                     buyItem(gameData.selectedItem, amount);
                 }
             });
+
             // 卖出按钮
             document.getElementById('sell-btn').addEventListener('click', function() {
                 const amount = parseInt(document.getElementById('trade-amount').value) || 0;
@@ -498,49 +541,52 @@
                     sellItem(gameData.selectedItem, amount);
                 }
             });
+
             // 下一天按钮
             document.getElementById('next-day-btn').addEventListener('click', nextDay);
+
             // 关闭事件弹窗
             document.getElementById('close-event').addEventListener('click', function() {
                 document.getElementById('event-modal').style.display = 'none';
             });
+
             // 重新开始按钮
             document.getElementById('restart-btn').addEventListener('click', function() {
                 location.reload();
             });
         }
+
         // 买入物品
         function buyItem(item, amount) {
             const currentPrice = gameData.prices[item][gameData.prices[item].length - 1];
-            const cost = currentPrice * amount;
+            const totalCost = currentPrice * amount;
             
-            if (cost > gameData.cash) {
-                alert('现金不足！');
-                return;
+            if (gameData.cash >= totalCost) {
+                gameData.cash -= totalCost;
+                gameData.inventory[item] += amount;
+                addToHistory(`买入 ${amount} 件 ${getItemName(item)}，价格 ¥${currentPrice.toLocaleString()}`);
+                updateUI();
+            } else {
+                addToHistory(`资金不足，无法买入 ${amount} 件 ${getItemName(item)}`);
             }
-            
-            gameData.cash -= cost;
-            gameData.inventory[item] += amount;
-            
-            addToHistory(`买入 ${amount} 件 ${getItemName(item)}，价格 ¥${currentPrice.toLocaleString()}`);
-            updateUI();
         }
+
         // 卖出物品
         function sellItem(item, amount) {
             if (gameData.inventory[item] < amount) {
-                alert('持有数量不足！');
+                addToHistory(`持仓不足，无法卖出 ${amount} 件 ${getItemName(item)}`);
                 return;
             }
             
             const currentPrice = gameData.prices[item][gameData.prices[item].length - 1];
-            const revenue = currentPrice * amount;
+            const totalRevenue = currentPrice * amount;
             
-            gameData.cash += revenue;
+            gameData.cash += totalRevenue;
             gameData.inventory[item] -= amount;
-            
             addToHistory(`卖出 ${amount} 件 ${getItemName(item)}，价格 ¥${currentPrice.toLocaleString()}`);
             updateUI();
         }
+
         // 进入下一天
         function nextDay() {
             if (gameData.currentDay >= 8) {
@@ -549,56 +595,54 @@
             }
             
             gameData.currentDay++;
-            
-            // 更新价格
             updatePrices();
-            
-            // 更新UI
             updateUI();
-            drawPriceChart();
             
-            // 显示事件（如果有）
-            if (gameData.currentDay <= 8) {
-                setTimeout(() => {
-                    showEvent(gameData.currentDay);
-                }, 500);
+            // 显示当日事件
+            const event = gameData.events.find(e => e.day === gameData.currentDay);
+            if (event) {
+                showEvent(gameData.currentDay);
             }
             
-            // 如果是崩盘日（第7天），添加震动效果
+            // 崩盘效果
             if (gameData.currentDay === 7) {
-                document.querySelector('.container').classList.add('crash-effect');
+                document.querySelector('.day-indicator').classList.add('crash-effect');
                 setTimeout(() => {
-                    document.querySelector('.container').classList.remove('crash-effect');
-                }, 500);
+                    document.querySelector('.day-indicator').classList.remove('crash-effect');
+                }, 2000);
             }
         }
+
         // 更新价格
         function updatePrices() {
             const items = ['butterfly', 'gloves', 'dragon', 'dagger'];
+            const day = gameData.currentDay;
             
             items.forEach(item => {
-                const lastPrice = gameData.prices[item][gameData.prices[item].length - 1];
+                let lastPrice = gameData.prices[item][gameData.prices[item].length - 1];
                 let newPrice;
                 
-                // 根据天数决定价格变化
-                if (gameData.currentDay < 7) {
-                    // 崩盘前：缓慢波动，略有上涨
-                    const changeRate = (Math.random() * 0.1) - 0.03; // -3% 到 +7%
-                    newPrice = lastPrice * (1 + changeRate);
-                } else if (gameData.currentDay === 7) {
-                    // 崩盘日：大幅下跌
-                    newPrice = lastPrice * (0.2 + Math.random() * 0.3); // 下跌50%-80%
-                } else {
-                    // 崩盘后：继续小幅下跌或震荡
-                    const changeRate = (Math.random() * 0.15) - 0.1; // -10% 到 +5%
-                    newPrice = lastPrice * (1 + changeRate);
+                // 前3天上涨
+                if (day <= 3) {
+                    newPrice = lastPrice * (1 + (Math.random() * 0.1));
+                }
+                // 4-5天波动
+                else if (day <= 5) {
+                    newPrice = lastPrice * (1 + (Math.random() * 0.2 - 0.1));
+                }
+                // 6天开始下跌
+                else if (day === 6) {
+                    newPrice = lastPrice * (0.7 - Math.random() * 0.2);
+                }
+                // 7天崩盘
+                else {
+                    newPrice = lastPrice * 0.1;
                 }
                 
-                // 确保价格不会低于1000元
-                newPrice = Math.max(newPrice, 1000);
                 gameData.prices[item].push(Math.round(newPrice));
             });
         }
+
         // 显示事件
         function showEvent(day) {
             const event = gameData.events.find(e => e.day === day);
@@ -608,104 +652,105 @@
                 document.getElementById('event-modal').style.display = 'flex';
             }
         }
+
         // 结束游戏
         function endGame() {
             const initialAssets = 50000;
             const finalAssets = calculateTotalAssets();
-            const profitRate = (finalAssets - initialAssets) / initialAssets * 100;
+            let content;
             
-            let title, content;
-            
-            if (profitRate >= 20) {
-                title = "逃顶大师";
-                content = `恭喜！您在市场崩盘前成功逃顶，总资产增长 ${profitRate.toFixed(1)}%。您的投资嗅觉比市场快一步，成功保住了收益。`;
-            } else if (profitRate >= -10) {
-                title = "惊魂未定";
-                content = `您成功保住了本金，总资产变化 ${profitRate.toFixed(1)}%。虽然经历了市场剧烈波动，但您成功避免了重大损失。`;
+            if (finalAssets <= initialAssets * 0.5) {
+                content = `游戏结束！你的总资产为 ¥${finalAssets.toLocaleString()}，亏损超过50%！\nCSGO饰品市场崩盘让你血本无归。`;
+            } else if (finalAssets <= initialAssets) {
+                content = `游戏结束！你的总资产为 ¥${finalAssets.toLocaleString()}，略有亏损。\n还好及时止损，没有亏太多。`;
+            } else if (finalAssets <= initialAssets * 2) {
+                content = `游戏结束！你的总资产为 ¥${finalAssets.toLocaleString()}，盈利不错！\n你成功规避了市场崩盘的风险。`;
             } else {
-                title = "深度套牢";
-                content = `您的总资产缩水 ${Math.abs(profitRate).toFixed(1)}%。虚拟饰品市场的风险需要每一个参与者警惕，这次经历或许是一次宝贵的教训。`;
+                content = `游戏结束！你的总资产为 ¥${finalAssets.toLocaleString()}，大赚特赚！\n你真是CSGO饰品投资大师！`;
             }
             
-            content += "\n\nCSGO饰品市场崩盘事件揭示了虚拟经济的脆弱性——当资产价值完全依赖于单一平台的规则时，任何政策变化都可能导致市场剧烈波动。";
-            
-            document.getElementById('result-title').textContent = title;
             document.getElementById('result-content').textContent = content;
             document.getElementById('result-modal').style.display = 'flex';
         }
+
         // 更新UI
         function updateUI() {
             // 更新当前天数
-            document.getElementById('current-day').textContent = gameData.currentDay;
-            document.getElementById('date-display').textContent = gameData.dates[gameData.currentDay - 1];
+            document.getElementById('current-day').textContent = `${gameData.dateLabels[gameData.currentDay-1]} (第${gameData.currentDay}天)`;
             
-            // 更新现金余额
-            document.getElementById('cash-amount').textContent = gameData.cash.toLocaleString();
+            // 更新统计数据
+            document.getElementById('cash').textContent = `¥${gameData.cash.toLocaleString()}`;
+            document.getElementById('inventory-value').textContent = `¥${calculateInventoryValue().toLocaleString()}`;
+            document.getElementById('total-assets').textContent = `¥${calculateTotalAssets().toLocaleString()}`;
             
             // 更新物品价格和涨跌幅
             const items = ['butterfly', 'gloves', 'dragon', 'dagger'];
             items.forEach(item => {
-                const currentPrice = gameData.prices[item][gameData.prices[item].length - 1];
-                const prevPrice = gameData.prices[item][gameData.prices[item].length - 2] || currentPrice;
+                const prices = gameData.prices[item];
+                const currentPrice = prices[prices.length - 1];
+                const prevPrice = prices.length > 1 ? prices[prices.length - 2] : currentPrice;
                 const change = ((currentPrice - prevPrice) / prevPrice * 100).toFixed(1);
                 
-                document.getElementById(`${item}-price`).textContent = currentPrice.toLocaleString();
-                const changeElement = document.getElementById(`${item}-change`);
-                changeElement.textContent = `${change >= 0 ? '+' : ''}${change}%`;
-                changeElement.className = `item-change ${change >= 0 ? 'positive' : 'negative'}`;
+                document.getElementById(`price-${item}`).textContent = `¥${currentPrice.toLocaleString()}`;
+                
+                const changeEl = document.getElementById(`change-${item}`);
+                changeEl.textContent = `${change > 0 ? '+' : ''}${change}%`;
+                changeEl.className = `item-change ${change >= 0 ? 'positive' : 'negative'}`;
             });
             
-            // 更新持仓价值和总资产
-            const inventoryValue = calculateInventoryValue();
-            const totalAssets = gameData.cash + inventoryValue;
-            
-            document.getElementById('inventory-value').textContent = inventoryValue.toLocaleString();
-            document.getElementById('total-assets').textContent = totalAssets.toLocaleString();
-            
-            // 更新下一个交易日按钮
+            // 更新按钮状态
             if (gameData.currentDay >= 8) {
+                document.getElementById('next-day-btn').disabled = true;
                 document.getElementById('next-day-btn').textContent = '查看结果';
             }
         }
+
         // 计算持仓价值
         function calculateInventoryValue() {
             let value = 0;
-            const items = ['butterfly', 'gloves', 'dragon', 'dagger'];
             
-            items.forEach(item => {
-                const currentPrice = gameData.prices[item][gameData.prices[item].length - 1];
-                value += gameData.inventory[item] * currentPrice;
+            Object.keys(gameData.inventory).forEach(item => {
+                const amount = gameData.inventory[item];
+                if (amount > 0) {
+                    const price = gameData.prices[item][gameData.prices[item].length - 1];
+                    value += amount * price;
+                }
             });
             
-            return value;
+            return Math.round(value);
         }
+
         // 计算总资产
         function calculateTotalAssets() {
             return gameData.cash + calculateInventoryValue();
         }
+
         // 添加交易记录
         function addToHistory(text) {
             const historyList = document.getElementById('history-list');
             const historyItem = document.createElement('div');
             historyItem.className = 'history-item';
-            historyItem.textContent = `第${gameData.currentDay}天: ${text}`;
+            historyItem.textContent = `${gameData.dateLabels[gameData.currentDay-1]}: ${text}`;
             historyList.appendChild(historyItem);
             historyList.scrollTop = historyList.scrollHeight;
         }
+
         // 获取物品名称
         function getItemName(item) {
             const names = {
                 butterfly: '蝴蝶刀',
-                gloves: '专业手套',
-                dragon: 'AWP 巨龙传说',
-                dagger: '穿肠刀'
+                gloves: '手套',
+                dragon: '龙狙',
+                dagger: '匕首'
             };
             return names[item];
         }
-        // 绘制价格图表（优化移动端图表显示）
+
+        // 绘制价格图表
         function drawPriceChart() {
             const ctx = document.getElementById('price-chart').getContext('2d');
             
+            // 销毁原有图表
             if (priceChart) {
                 priceChart.destroy();
             }
@@ -725,8 +770,8 @@
                         borderWidth: 2,
                         fill: true,
                         tension: 0.4,
-                        pointRadius: 3, // 减小数据点大小
-                        pointHoverRadius: 5
+                        pointRadius: 2,
+                        pointHoverRadius: 4
                     }]
                 },
                 options: {
@@ -734,23 +779,23 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false // 隐藏图例（节省空间）
+                            display: false
                         },
                         tooltip: {
                             enabled: true,
-                            titleFont: { size: 12 },
-                            bodyFont: { size: 11 }
+                            titleFont: { size: 11 },
+                            bodyFont: { size: 10 }
                         }
                     },
                     scales: {
                         x: {
                             grid: {
                                 color: 'rgba(255, 255, 255, 0.05)',
-                                display: false // 隐藏X轴网格线
+                                display: false
                             },
                             ticks: {
                                 color: '#e0e0e0',
-                                font: { size: 10 } // 减小X轴刻度字体
+                                font: { size: 9 }
                             }
                         },
                         y: {
@@ -759,9 +804,8 @@
                             },
                             ticks: {
                                 color: '#e0e0e0',
-                                font: { size: 10 }, // 减小Y轴刻度字体
+                                font: { size: 9 },
                                 callback: function(value) {
-                                    // 简化价格显示（万为单位）
                                     if (value >= 10000) {
                                         return '¥' + (value / 10000).toFixed(1) + '万';
                                     }
