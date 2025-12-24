@@ -607,10 +607,9 @@
                 document.getElementById('event-content').textContent = event.content;
                 document.getElementById('event-modal').style.display = 'flex';
             }
-        }
-        // 结束游戏
+         // 结束游戏
         function endGame() {
-            const initialAssets = 50000;
+            const initialAssets = 150000; // 初始资产同步修改为150000
             const finalAssets = calculateTotalAssets();
             const profitRate = (finalAssets - initialAssets) / initialAssets * 100;
             
@@ -777,5 +776,6 @@
     </script>
 </body>
 </html>
+
 
 
