@@ -16,7 +16,7 @@
         body {
             background-color: #1a1a2e;
             color: #e0e0e0;
-            padding: 10px; /* 缩小整体边距 */
+            padding: 10px; /* 减小内边距 */
         }
         
         .container {
@@ -26,73 +26,80 @@
         
         header {
             text-align: center;
-            margin-bottom: 10px; /* 缩小间距 */
+            margin-bottom: 10px; /* 减小底部间距 */
         }
         
         h1 {
             color: #f1c40f;
-            margin-bottom: 5px;
-            font-size: 22px; /* 缩小标题字体 */
+            margin-bottom: 5px; /* 减小底部间距 */
+            font-size: 20px; /* 缩小字体 */
         }
         
         .subtitle {
             color: #bbb;
-            font-size: 12px; /* 缩小副标题字体 */
+            font-size: 12px; /* 缩小字体 */
         }
         
         .game-area {
             background-color: #16213e;
             border-radius: 10px;
-            padding: 10px; /* 缩小游戏区域内边距 */
+            padding: 12px; /* 减小内边距 */
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        
+        .day-indicator {
+            text-align: center;
+            margin-bottom: 8px; /* 减小底部间距 */
+            font-size: 16px; /* 缩小字体 */
+            color: #f1c40f;
         }
         
         .stats-panel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px; /* 缩小间距 */
-            margin-bottom: 15px; /* 缩小间距 */
+            gap: 8px; /* 减小间距 */
+            margin-bottom: 15px; /* 减小底部间距 */
         }
         
         .stat-card {
             background-color: #0f3460;
-            padding: 8px; /* 缩小卡片内边距 */
+            padding: 8px; /* 缩小内边距 */
             border-radius: 8px;
             text-align: center;
         }
         
         .stat-card div:first-child {
-            font-size: 12px; /* 缩小统计标签字体 */
+            font-size: 12px; /* 缩小标签字体 */
         }
         
         .stat-value {
-            font-size: 16px; /* 缩小统计数值字体 */
+            font-size: 16px; /* 缩小数值字体 */
             font-weight: bold;
             color: #4CAF50;
-            margin-top: 3px; /* 缩小间距 */
+            margin-top: 3px; /* 减小间距 */
         }
         
         .chart-container {
-            height: 30vh;
-            min-height: 180px; /* 降低图表最小高度 */
-            margin-bottom: 15px; /* 缩小间距 */
+            height: 25vh; /* 降低图表高度 */
+            min-height: 150px; /* 减小最小高度 */
+            margin-bottom: 15px; /* 减小底部间距 */
             position: relative;
         }
         
         .items-panel {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px; /* 缩小间距 */
-            margin-bottom: 15px; /* 缩小间距 */
+            gap: 8px; /* 减小间距 */
+            margin-bottom: 15px; /* 减小底部间距 */
         }
         
         .item-card {
             background-color: #0f3460;
-            padding: 10px; /* 缩小道具卡片内边距 */
+            padding: 10px; /* 缩小内边距 */
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            min-height: 36px; /* 降低最小高度 */
+            min-height: 40px; /* 降低最小高度 */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -104,17 +111,17 @@
         
         .item-name {
             font-weight: bold;
-            font-size: 14px; /* 缩小道具名称字体 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         .item-price {
-            margin: 3px 0; /* 缩小间距 */
+            margin: 3px 0; /* 减小间距 */
             color: #4CAF50;
-            font-size: 14px; /* 缩小价格字体 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         .item-change {
-            font-size: 12px; /* 缩小涨跌幅字体 */
+            font-size: 12px; /* 缩小字体 */
         }
         
         .positive {
@@ -126,38 +133,39 @@
         }
         
         .actions-panel {
-            margin-bottom: 15px; /* 缩小间距 */
+            margin-bottom: 15px; /* 减小底部间距 */
         }
         
         .trade-inputs {
             display: flex;
-            gap: 8px; /* 缩小间距 */
-            margin-bottom: 8px; /* 缩小间距 */
+            gap: 8px; /* 减小间距 */
+            margin-bottom: 8px; /* 减小底部间距 */
         }
         
         input {
             flex: 1;
-            padding: 10px; /* 缩小输入框内边距 */
+            padding: 10px; /* 缩小内边距 */
             border: none;
             border-radius: 5px;
             background-color: #2c3e50;
             color: white;
-            min-height: 36px; /* 降低输入框最小高度 */
-            font-size: 14px; /* 缩小输入框字体 */
+            min-height: 40px; /* 降低最小高度 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         button {
-            padding: 10px 12px; /* 缩小按钮内边距 */
+            padding: 10px 15px; /* 缩小内边距 */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.3s ease;
-            min-height: 36px; /* 降低按钮最小高度 */
+            min-height: 40px; /* 降低最小高度 */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            font-size: 14px; /* 缩小按钮字体 */
+            font-size: 14px; /* 缩小字体 */
+            text-align: center;
         }
         
         #buy-btn {
@@ -166,7 +174,7 @@
             flex: 1;
         }
         
-        .sell-btn {
+        #sell-btn {
             background-color: #e74c3c;
             color: white;
             flex: 1;
@@ -176,29 +184,29 @@
             background-color: #f39c12;
             color: white;
             width: 100%;
-            padding: 10px; /* 缩小按钮内边距 */
-            font-size: 14px; /* 缩小按钮字体 */
+            padding: 10px; /* 缩小内边距 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         .history-panel {
             background-color: #0f3460;
             border-radius: 8px;
-            padding: 10px; /* 缩小历史面板内边距 */
+            padding: 10px; /* 缩小内边距 */
             max-height: 150px; /* 降低最大高度 */
             overflow-y: auto;
         }
         
         .history-title {
             font-weight: bold;
-            margin-bottom: 8px; /* 缩小间距 */
+            margin-bottom: 8px; /* 减小底部间距 */
             color: #f1c40f;
-            font-size: 14px; /* 缩小标题字体 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         .history-item {
-            font-size: 12px; /* 缩小历史记录字体 */
-            margin-bottom: 3px; /* 缩小间距 */
-            padding-bottom: 3px; /* 缩小间距 */
+            font-size: 13px; /* 缩小字体 */
+            margin-bottom: 3px; /* 减小间距 */
+            padding-bottom: 3px; /* 减小间距 */
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
@@ -213,12 +221,12 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
-            padding: 15px; /* 调整弹窗内边距 */
+            padding: 15px;
         }
         
         .modal-content {
             background-color: #16213e;
-            padding: 15px; /* 缩小弹窗内边距 */
+            padding: 15px; /* 缩小内边距 */
             border-radius: 10px;
             width: 100%;
             max-width: 500px;
@@ -227,15 +235,15 @@
         
         .modal-header {
             color: #f1c40f;
-            font-size: 18px; /* 缩小弹窗标题字体 */
+            font-size: 18px; /* 缩小字体 */
             font-weight: bold;
-            margin-bottom: 10px; /* 缩小间距 */
+            margin-bottom: 10px; /* 减小底部间距 */
         }
         
         .modal-body {
-            margin-bottom: 15px; /* 缩小间距 */
+            margin-bottom: 15px; /* 减小底部间距 */
             line-height: 1.5;
-            font-size: 14px; /* 缩小弹窗内容字体 */
+            font-size: 14px; /* 缩小字体 */
         }
         
         .modal-footer {
@@ -276,53 +284,54 @@
             100% { transform: scale(1); }
         }
         
-        .day-indicator {
-            text-align: center;
-            margin-bottom: 8px; /* 缩小间距 */
-            font-size: 14px; /* 缩小日期字体 */
-            color: #f1c40f;
-        }
-        
-        /* 响应式设计 - 确保手机端无需滑动 */
+        /* 响应式设计 - 确保手机端无滚动 */
         @media (max-width: 600px) {
-            /* 保持三列统计和两列道具布局，通过缩小内部元素适配 */
             .stats-panel, .items-panel {
-                grid-template-columns: repeat(3, 1fr) !important;
+                grid-template-columns: repeat(3,1fr) !important; /* 强制统计栏3列 */
             }
             
             .items-panel {
-                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-columns: repeat(2,1fr) !important; /* 强制道具2列 */
             }
             
             .trade-inputs {
-                flex-direction: row; /* 保持买入卖出同一排 */
+                flex-direction: row !important; /* 强制买入卖出同一排 */
+            }
+            
+            input, button {
+                font-size: 13px !important;
+            }
+            
+            .chart-container {
+                height: 20vh !important; /* 进一步降低图表高度 */
+                min-height: 120px !important;
+            }
+            
+            .history-panel {
+                max-height: 120px !important;
             }
         }
         
         @media (max-width: 400px) {
             .container {
-                padding: 8px;
+                padding: 5px !important;
             }
             
             h1 {
-                font-size: 18px;
+                font-size: 18px !important;
             }
             
             .stat-value, .item-price {
-                font-size: 14px;
+                font-size: 13px !important;
             }
             
             input, button {
-                padding: 8px;
-                font-size: 12px;
+                padding: 8px !important;
+                font-size: 12px !important;
             }
             
             .day-indicator {
-                font-size: 12px;
-            }
-            
-            .chart-container {
-                min-height: 160px; /* 进一步降低小屏图表高度 */
+                font-size: 14px !important;
             }
         }
     </style>
@@ -340,7 +349,7 @@
             <div class="stats-panel">
                 <div class="stat-card">
                     <div>现金余额</div>
-                    <div class="stat-value">¥<span id="cash-amount">15000</span></div>
+                    <div class="stat-value">¥<span id="cash-amount">150000</span></div>
                 </div>
                 <div class="stat-card">
                     <div>持仓价值</div>
@@ -348,7 +357,7 @@
                 </div>
                 <div class="stat-card">
                     <div>总资产</div>
-                    <div class="stat-value">¥<span id="total-assets">15000</span></div>
+                    <div class="stat-value">¥<span id="total-assets">150000</span></div>
                 </div>
             </div>
             
@@ -381,9 +390,9 @@
             
             <div class="actions-panel">
                 <div class="trade-inputs">
-                    <input type="number" id="trade-amount" placeholder="输入交易数量" min="1" value="1">
+                    <input type="number" id="trade-amount" placeholder="交易数量" min="1" value="1">
                     <button id="buy-btn">买入</button>
-                    <button id="sell-btn" class="sell-btn">卖出</button>
+                    <button id="sell-btn">卖出</button>
                 </div>
                 <button id="next-day-btn" class="next-day-btn">下一天</button>
             </div>
@@ -422,10 +431,10 @@
         </div>
     </div>
     <script>
-        // 游戏数据
+        // 游戏数据 - 初始资金改为150000
         const gameData = {
             currentDay: 1,
-            cash: 15000, // 初始资金改为15000
+            cash: 150000,
             inventory: {
                 butterfly: 0,
                 gloves: 0,
@@ -601,18 +610,19 @@
                 document.getElementById('event-modal').style.display = 'flex';
             }
         }
-        // 结束游戏
+        // 结束游戏 - 调整本金为150000，重新计算百分比阈值
         function endGame() {
-            const initialAssets = 15000; // 本金改为15000（同步初始资金）
+            const initialAssets = 150000; // 初始本金改为150000
             const finalAssets = calculateTotalAssets();
             const profitRate = (finalAssets - initialAssets) / initialAssets * 100;
             
             let title, content;
             
-            if (profitRate >= 20) {
+            // 阈值按比例调整（原阈值基于50000，现按相同比例调整）
+            if (profitRate >= 20) { // 原50000的20%=10000，现150000的20%=30000
                 title = "逃顶大师";
                 content = `恭喜！您在市场崩盘前成功逃顶，总资产增长 ${profitRate.toFixed(1)}%。您的投资嗅觉比市场快一步，成功保住了收益。`;
-            } else if (profitRate >= -10) {
+            } else if (profitRate >= -10) { // 原50000的-10%=-5000，现150000的-10%=-15000
                 title = "惊魂未定";
                 content = `您成功保住了本金，总资产变化 ${profitRate.toFixed(1)}%。虽然经历了市场剧烈波动，但您成功避免了重大损失。`;
             } else {
